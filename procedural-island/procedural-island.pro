@@ -15,10 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     heightmap.cpp \
-    random.cpp
+    random.cpp \
+    preview2d.cpp
 
 HEADERS  += mainwindow.h \
     heightmap.h \
-    random.h
+    random.h \
+    preview2d.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    preview2d.ui
