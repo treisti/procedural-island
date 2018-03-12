@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    heightmap.cpp
+    heightmap.cpp \
+    random.cpp
 
 HEADERS  += mainwindow.h \
-    heightmap.h
+    heightmap.h \
+    random.h
 
 FORMS    += mainwindow.ui
