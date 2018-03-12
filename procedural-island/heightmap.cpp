@@ -24,7 +24,7 @@ void Heightmap::diamondSquare(double smoothness)
 {
     // Diamond Square generation must have a map size of (2^n)+1
     int n = 0;
-    while(pow(2, n)+1 < (xSize < ySize)?ySize:xSize)
+    while(pow(2, n)+1 < ((xSize < ySize)?ySize:xSize))
     {
         n++;
     }
@@ -38,6 +38,7 @@ void Heightmap::diamondSquare(double smoothness)
             gen[i].push_back(0.0);
         }
     }
+
 
     gen[0][0]=Random::between(0.0, 1.0);
     gen[0][size-1]=Random::between(0.0, 1.0);
@@ -70,6 +71,20 @@ void Heightmap::diamondSquare(double smoothness)
 
         step /= 2;
     }
+
+    map = std::vector<std::vector<double> >();
+
+    for(int i=0; i<xSize; i++)
+    {
+        map.push_back(std::vector<double>());
+
+        for(int j=0; j<ySize; j++)
+        {
+            map[i].push_back(gen[i][j]);
+        }
+    }
+
+    normalize(0.0, 1.0);
 }
 
 double Heightmap::square(int x, int y, int step, std::vector<std::vector<double> > map)
@@ -126,4 +141,47 @@ double Heightmap::diamond(int x, int y, int step, std::vector<std::vector<double
     }
 
     return (cornerA + cornerB + cornerC + cornerD) / n;
+}
+
+double Heightmap::getXSize()
+{
+    return xSize;
+}
+
+double Heightmap::getYSize()
+{
+    return ySize;
+}
+
+double Heightmap::get(int x, int y)
+{
+    return map[x][y];
+}
+
+void Heightmap::normalize(double a, double b)
+{
+    double min = map[0][0];
+    double max = map[0][0];
+
+    for(int i=0; i<xSize; i++)
+    {
+        for(int j=0; j<ySize; j++)
+        {
+            if(map[i][j] > max)
+            {
+                max = map[i][j];
+            }
+            if(map[i][j] < min)
+            {
+                min = map[i][j];
+            }
+        }
+    }
+    for(int i=0; i<xSize; i++)
+    {
+        for(int j=0; j<ySize; j++)
+        {
+            map[i][j] = ((map[i][j] - min) / (max - min)) * (b-a) + a;
+        }
+    }
 }

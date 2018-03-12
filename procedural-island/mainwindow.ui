@@ -25,7 +25,20 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QDoubleSpinBox" name="smoothnessSpin"/>
+       <widget class="QDoubleSpinBox" name="smoothnessSpin">
+        <property name="decimals">
+         <number>3</number>
+        </property>
+        <property name="maximum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.001000000000000</double>
+        </property>
+        <property name="value">
+         <double>1.000000000000000</double>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -60,5 +73,42 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>generateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>generate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>195</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>smoothnessSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateSmoothness(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>51</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>generate()</slot>
+  <slot>updateSmoothness(double)</slot>
+ </slots>
 </ui>

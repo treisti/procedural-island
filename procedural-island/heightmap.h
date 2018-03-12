@@ -4,6 +4,7 @@
 #include <math.h>
 #include <vector>
 #include "random.h"
+#include <QDebug>
 
 class Heightmap
 {
@@ -11,6 +12,10 @@ public:
     Heightmap(int _xSize, int _ySize);
     void clear(); // Clear the heightmap
     void diamondSquare(double smoothness); // Heightmap generation using diamond-square algorithm
+    double getXSize();
+    double getYSize();
+    double get(int x, int y);
+    void normalize(double a, double b);
 private:
     std::vector<std::vector<double> > map;
     int xSize, ySize;
