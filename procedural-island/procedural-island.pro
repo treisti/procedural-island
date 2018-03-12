@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    heightmap.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    heightmap.h
 
 FORMS    += mainwindow.ui
