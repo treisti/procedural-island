@@ -40,6 +40,52 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="widthLabel">
+        <property name="text">
+         <string>Width</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="heightLabel">
+        <property name="text">
+         <string>Height</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="widthSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100000</number>
+        </property>
+        <property name="singleStep">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>256</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="heightSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100000</number>
+        </property>
+        <property name="singleStep">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>256</number>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -51,25 +97,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>400</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -81,8 +108,8 @@
    <slot>generate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>117</x>
-     <y>255</y>
+     <x>126</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel">
      <x>195</x>
@@ -97,8 +124,8 @@
    <slot>updateSmoothness(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>63</y>
+     <x>216</x>
+     <y>39</y>
     </hint>
     <hint type="destinationlabel">
      <x>51</x>
@@ -106,9 +133,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>widthSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateWidth(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>heightSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateHeight(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>239</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>generate()</slot>
   <slot>updateSmoothness(double)</slot>
+  <slot>updateWidth(int)</slot>
+  <slot>updateHeight(int)</slot>
  </slots>
 </ui>

@@ -16,7 +16,7 @@ MainWindow::~MainWindow()
 void MainWindow::generate()
 {
     Preview2D * preview = new Preview2D();
-    Heightmap map = Heightmap(256, 256);
+    Heightmap map = Heightmap(width, height);
     map.diamondSquare(smoothness);
     map.normalize(0.0, 255.0);
 
@@ -27,4 +27,14 @@ void MainWindow::generate()
 void MainWindow::updateSmoothness(double value)
 {
     smoothness = value;
+}
+
+void MainWindow::updateWidth(int value)
+{
+    width = value;
+}
+
+void MainWindow::updateHeight(int value)
+{
+    height = value;
 }
