@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     heightmap.cpp \
     random.cpp \
-    preview2d.cpp
+    preview2d.cpp \
+    biome.cpp
 
 HEADERS  += mainwindow.h \
     heightmap.h \
     random.h \
-    preview2d.h
+    preview2d.h \
+    biome.h
 
 FORMS    += mainwindow.ui \
     preview2d.ui
